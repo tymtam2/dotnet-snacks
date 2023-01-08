@@ -3,10 +3,10 @@ using BenchmarkDotNet.Running;
 
 var summary = BenchmarkRunner.Run(
     types: new [] {
-      //  typeof(SortAndOrderBenchmarkInt), 
-      //  typeof(SortAndOrderBenchmarkString),
+        typeof(SortAndOrderBenchmarkInt), 
+        typeof(SortAndOrderBenchmarkString),
         typeof(SortAndOrderBenchmarkRecordStruct),
-      //  typeof(SortAndOrderBenchmarkRecordClass)
+        typeof(SortAndOrderBenchmarkRecordClass)
         });
 
 
