@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>SortAndOrderBenchmarkString-20230108-145939</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.3, OS=ubuntu 22.04
+Intel Core i7-8565U CPU 1.80GHz (Whiskey Lake), 1 CPU, 8 logical and 4 physical cores
+.NET SDK=7.0.101
+  [Host]     : .NET 7.0.1 (7.0.122.56804), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.1 (7.0.122.56804), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method</th><th>N</th><th> Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>ListOrderBy</td><td>666</td><td>422.5 &mu;s</td><td>4.69 &mu;s</td><td>4.16 &mu;s</td><td>421.6 &mu;s</td><td>18984 B</td>
+</tr><tr><td>ListOrder</td><td>666</td><td>421.1 &mu;s</td><td>1.89 &mu;s</td><td>1.76 &mu;s</td><td>421.0 &mu;s</td><td>13632 B</td>
+</tr><tr><td>ListSort</td><td>666</td><td>283.9 &mu;s</td><td>1.73 &mu;s</td><td>1.53 &mu;s</td><td>283.9 &mu;s</td><td>-</td>
+</tr><tr><td>ArrayOrderBy</td><td>666</td><td>410.4 &mu;s</td><td>8.13 &mu;s</td><td>16.05 &mu;s</td><td>417.0 &mu;s</td><td>18984 B</td>
+</tr><tr><td>ArrayOrder</td><td>666</td><td>386.1 &mu;s</td><td>7.04 &mu;s</td><td>18.16 &mu;s</td><td>381.7 &mu;s</td><td>13632 B</td>
+</tr><tr><td>ArraySort</td><td>666</td><td>272.0 &mu;s</td><td>2.06 &mu;s</td><td>1.61 &mu;s</td><td>272.1 &mu;s</td><td>-</td>
+</tr><tr><td>ListOrderBy</td><td>6660</td><td>5,621.8 &mu;s</td><td>29.98 &mu;s</td><td>26.58 &mu;s</td><td>5,624.0 &mu;s</td><td>186823 B</td>
+</tr><tr><td>ListOrder</td><td>6660</td><td>5,559.2 &mu;s</td><td>86.72 &mu;s</td><td>72.41 &mu;s</td><td>5,538.8 &mu;s</td><td>133519 B</td>
+</tr><tr><td>ListSort</td><td>6660</td><td>3,925.8 &mu;s</td><td>20.61 &mu;s</td><td>22.91 &mu;s</td><td>3,919.8 &mu;s</td><td>7 B</td>
+</tr><tr><td>ArrayOrderBy</td><td>6660</td><td>5,603.8 &mu;s</td><td>22.67 &mu;s</td><td>20.10 &mu;s</td><td>5,609.5 &mu;s</td><td>186823 B</td>
+</tr><tr><td>ArrayOrder</td><td>6660</td><td>5,595.3 &mu;s</td><td>70.98 &mu;s</td><td>66.39 &mu;s</td><td>5,609.0 &mu;s</td><td>133519 B</td>
+</tr><tr><td>ArraySort</td><td>6660</td><td>3,992.5 &mu;s</td><td>29.65 &mu;s</td><td>26.28 &mu;s</td><td>3,996.1 &mu;s</td><td>7 B</td>
+</tr><tr><td>ListOrderBy</td><td>66600</td><td>79,120.5 &mu;s</td><td>488.45 &mu;s</td><td>456.89 &mu;s</td><td>79,139.2 &mu;s</td><td>1865270 B</td>
+</tr><tr><td>ListOrder</td><td>66600</td><td>85,656.3 &mu;s</td><td>1,709.01 &mu;s</td><td>4,192.22 &mu;s</td><td>87,436.6 &mu;s</td><td>1332468 B</td>
+</tr><tr><td>ListSort</td><td>66600</td><td>52,718.8 &mu;s</td><td>481.28 &mu;s</td><td>426.64 &mu;s</td><td>52,743.8 &mu;s</td><td>94 B</td>
+</tr><tr><td>ArrayOrderBy</td><td>66600</td><td>78,244.8 &mu;s</td><td>412.48 &mu;s</td><td>365.65 &mu;s</td><td>78,159.6 &mu;s</td><td>1865270 B</td>
+</tr><tr><td>ArrayOrder</td><td>66600</td><td>76,669.2 &mu;s</td><td>658.76 &mu;s</td><td>616.21 &mu;s</td><td>76,582.6 &mu;s</td><td>1332446 B</td>
+</tr><tr><td>ArraySort</td><td>66600</td><td>53,915.7 &mu;s</td><td>422.99 &mu;s</td><td>374.97 &mu;s</td><td>53,865.9 &mu;s</td><td>94 B</td>
+</tr></tbody></table>
+</body>
+</html>

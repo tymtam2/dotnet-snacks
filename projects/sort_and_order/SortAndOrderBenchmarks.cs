@@ -7,7 +7,7 @@ using BenchmarkDotNet.Attributes;
 [MemoryDiagnoser(displayGenColumns: false)]
 public class SortAndOrderBenchmarks<T>
 {
-    [Params(666, 6_660)]
+    [Params(666, 6_660, 66_600)]
     public int N {get; set;}
 
     private List<T>? dataListOrderBy;
