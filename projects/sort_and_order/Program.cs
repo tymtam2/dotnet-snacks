@@ -9,6 +9,7 @@ var summary = BenchmarkRunner.Run(
         typeof(SortAndOrderBenchmarkRecordClass)
         });
 
+//BenchmarkRunner.Run<SortAndOrderBenchmarks_NC_Array>();
 
 public class SortAndOrderBenchmarkInt: SortAndOrderBenchmarks<int>
 {

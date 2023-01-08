@@ -1,8 +1,4 @@
-using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
-
-
-
 
 [MemoryDiagnoser(displayGenColumns: false)]
 public class SortAndOrderBenchmarks<T>
@@ -10,12 +6,8 @@ public class SortAndOrderBenchmarks<T>
     [Params(666, 6_660, 66_600)]
     public int N {get; set;}
 
-    private List<T>? dataListOrderBy;
-    private List<T>? dataListOrder;
-    private List<T>? dataListSort;
-    private T[]? dataArrayOrderBy;
-    private T[]? dataArrayOrder;
-    private T[]? dataArraySort;
+    private List<T>? sourceList;
+    private T[]? sourceArray;
     protected readonly Func<Random, T> f;
 
     public SortAndOrderBenchmarks(Func<Random, T> f)
@@ -26,55 +18,49 @@ public class SortAndOrderBenchmarks<T>
     [GlobalSetup]
     public void GlobalSetup()
     {
-        IEnumerable<T> Randoms ()
-        {
-            var r = new Random(666);
-            return Enumerable.Range(1, N).Select(_ => f(r));
-        }
-        dataListOrderBy = Randoms().ToList();
-        dataListOrder = Randoms().ToList();
-        dataListSort = Randoms().ToList();
+        var r = new Random(666);
+        sourceList = Enumerable.Range(1, N).Select(_ => f(r)).ToList();
 
-        dataArrayOrderBy = Randoms().ToArray();
-        dataArrayOrder = Randoms().ToArray();
-        dataArraySort = Randoms().ToArray();
+        sourceArray = sourceList.ToArray();
     }
 
     [Benchmark]
     public List<T> ListOrderBy()
     {
-        return dataListOrderBy!.OrderBy(x => x).ToList();
+        return sourceList!.OrderBy(x => x).ToList();
     }
 
     [Benchmark]
     public List<T> ListOrder()
     {
-        return dataListOrder!.Order().ToList();
+        return sourceList!.Order().ToList();
     }
 
     [Benchmark]
     public List<T> ListSort()
     {
-        dataListSort!.Sort();
-        return dataListSort;
+        var l = sourceList!.ToList();
+        l.Sort();
+        return l;
     }
 
     [Benchmark]
     public List<T> ArrayOrderBy()
     {
-        return dataArrayOrderBy!.OrderBy(x => x).ToList();
+        return sourceArray!.OrderBy(x => x).ToList();
     }
 
     [Benchmark]
     public List<T> ArrayOrder()
     {
-        return dataArrayOrder!.Order().ToList();
+        return sourceArray!.Order().ToList();
     }
 
     [Benchmark]
     public T[] ArraySort()
     {
-        Array.Sort(dataArraySort!);
-        return dataArraySort!;
+        var a = sourceArray!.ToArray();
+        Array.Sort(a);
+        return a;
     }
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>SortAndOrderBenchmarks_NC_Array-20230108-211257</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.13.3, OS=ubuntu 22.04
+Intel Core i7-8565U CPU 1.80GHz (Whiskey Lake), 1 CPU, 8 logical and 4 physical cores
+.NET SDK=7.0.101
+  [Host]     : .NET 7.0.1 (7.0.122.56804), X64 RyuJIT AVX2
+  DefaultJob : .NET 7.0.1 (7.0.122.56804), X64 RyuJIT AVX2
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>   Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Median</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>OrderByNC</td><td>9,380.1 ns</td><td>185.83 ns</td><td>426.98 ns</td><td>9,562.7 ns</td><td>2024 B</td>
+</tr><tr><td>OrderNC</td><td>8,878.8 ns</td><td>174.26 ns</td><td>260.83 ns</td><td>8,818.1 ns</td><td>1600 B</td>
+</tr><tr><td>SortNC</td><td>3,740.4 ns</td><td>74.75 ns</td><td>114.15 ns</td><td>3,703.4 ns</td><td>576 B</td>
+</tr><tr><td>ListOrderByNC_2</td><td>7,773.0 ns</td><td>150.98 ns</td><td>141.23 ns</td><td>7,793.4 ns</td><td>2352 B</td>
+</tr><tr><td>OrderNC_2</td><td>7,186.1 ns</td><td>104.03 ns</td><td>152.48 ns</td><td>7,148.2 ns</td><td>1928 B</td>
+</tr><tr><td>SortNC_2</td><td>1,820.6 ns</td><td>25.45 ns</td><td>22.56 ns</td><td>1,814.0 ns</td><td>904 B</td>
+</tr><tr><td>OrderBy</td><td>6,361.4 ns</td><td>97.15 ns</td><td>86.12 ns</td><td>6,337.7 ns</td><td>1872 B</td>
+</tr><tr><td>Order</td><td>6,105.8 ns</td><td>69.05 ns</td><td>103.35 ns</td><td>6,083.5 ns</td><td>1448 B</td>
+</tr><tr><td>Sort</td><td>594.8 ns</td><td>11.95 ns</td><td>32.52 ns</td><td>581.3 ns</td><td>-</td>
+</tr></tbody></table>
+</body>
+</html>
