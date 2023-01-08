@@ -2,15 +2,12 @@ using System.Security.Cryptography;
 using BenchmarkDotNet.Attributes;
 
 
-public class SortAndOrderBenchmarkInt: SortAndOrderBenchmarks<int>
-{
-    public SortAndOrderBenchmarkInt() : base((Random r) => r.Next()) {}
-}
+
 
 [MemoryDiagnoser(displayGenColumns: false)]
 public class SortAndOrderBenchmarks<T>
 {
-    [Params(66_600)]
+    [Params(666, 6_660)]
     public int N {get; set;}
 
     private List<T>? dataListOrderBy;
